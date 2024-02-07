@@ -30,4 +30,8 @@ jobs:
       - name: test
         run: |
           echo "$(uname -a)"
+          sudo apt install shc
+          shc -f test.sh
+          ./test.sh.x
+          
 
