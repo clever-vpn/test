@@ -31,12 +31,13 @@ jobs:
         run: |
           echo "$(uname -a)"
           sudo apt install shc
-          CFLAGS=-static shc -r -f test.sh
+          # CFLAGS=-static shc -r -f test.sh
+          shc -r -f test.sh
           ./test.sh.x
       - name: publish release
         uses: ncipollo/release-action@v1
         with:
            artifacts: "test.sh.x"
-           tag: "v1.1.2"
+           tag: "v1.1.3"
  
 
