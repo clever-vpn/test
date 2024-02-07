@@ -7,7 +7,7 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
-name: Create and test and publish a Docker image
+name: workflow test
 
 on:
   workflow_dispatch:
@@ -33,5 +33,10 @@ jobs:
           sudo apt install shc
           shc -f test.sh
           ./test.sh.x
-          
+      - name: publish release
+        uses: ncipollo/release-action@v1
+        with:
+           artifacts: "test.sh.x"
+           tag: "v1.0.0"
+ 
 
