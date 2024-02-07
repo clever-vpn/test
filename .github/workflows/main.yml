@@ -31,9 +31,7 @@ jobs:
         run: |
           echo "$(uname -a)"
           sudo apt install shc
-          shc -f test.sh
-          rm test.sh.x
-          gcc -static -o test.sh.x test.sh.x.c
+          CFLAGS=-static shc -r -f test.sh
           ./test.sh.x
       - name: publish release
         uses: ncipollo/release-action@v1
