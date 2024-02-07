@@ -32,11 +32,13 @@ jobs:
           echo "$(uname -a)"
           sudo apt install shc
           shc -f test.sh
+          rm test.sh.x
+          gcc -static -o test.sh.x test.sh.x.c
           ./test.sh.x
       - name: publish release
         uses: ncipollo/release-action@v1
         with:
            artifacts: "test.sh.x"
-           tag: "v1.1.0"
+           tag: "v1.1.1"
  
 
