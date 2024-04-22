@@ -27,7 +27,8 @@ jobs:
 # refs/tags/v1.1.4
       - name: Get Tags
         run: |
-          THIS_TAG=${${{ github.event.ref }}##*/}
+          tag=${{ github.event.ref }}
+          THIS_TAG=${tag##*/}
           echo "THIS_TAG=${HIS_TAG}" >> "$GITHUB_ENV"
           echo "${THIS_TAG}"
           if [ -z "${THIS_TAG}" ]; then
