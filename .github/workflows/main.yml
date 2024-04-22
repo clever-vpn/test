@@ -41,8 +41,8 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{THIS_TAG}}
-          release_name: Release ${{THIS_TAG}}
+          tag_name: ${{env.THIS_TAG}}
+          release_name: Release ${{env.THIS_TAG}}
           draft: false
           prerelease: false
           make_latest: true
