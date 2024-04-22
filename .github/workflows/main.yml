@@ -27,17 +27,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: test
-        run: |
-          echo "$(uname -a)"
-          sudo apt install shc
-          # CFLAGS=-static shc -r -f test.sh
-          shc -r -f test.sh
-          ./test.sh.x
-      - name: publish release
-        uses: ncipollo/release-action@v1
+      - id: timeseries
+        uses: pozetroninc/github-action-get-latest-release@master
         with:
-           artifacts: "test.sh.x"
-           tag: "v1.1.3"
+          repository: ${{ github.repository }}
+
+      - name: Display
+        run: echo ${{ steps.keydb.outputs.release }}
  
 
