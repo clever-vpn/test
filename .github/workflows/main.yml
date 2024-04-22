@@ -28,15 +28,15 @@ jobs:
       - name: Get Tags
         run: |
           refTag=${{ github.event.ref }}
-          THIS_TAG=${regTag##*/}
+          THIS_TAG=${refTag##*/}
           echo "refTag is ${refTag}"
           echo "THIS_TAG is ${THIS_TAG}"
-        # echo "THIS_TAG=${regTag##*/}" >> "$GITHUB_ENV"
-        # echo "${THIS_TAG}"
-        # if [ -z "${THIS_TAG}" ]; then
-        #   echo "error: invalid tags"
-        #   exit 1
-        # fi 
+          echo "THIS_TAG=${refTag##*/}" >> "$GITHUB_ENV"
+          echo "${THIS_TAG}"
+          if [ -z "${THIS_TAG}" ]; then
+            echo "error: invalid tags"
+            exit 1
+          fi 
       # - name: Checkout repository
       #   uses: actions/checkout@v4      
 
