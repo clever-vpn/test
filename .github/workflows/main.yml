@@ -29,7 +29,8 @@ jobs:
         run: |
           refTag=${{ github.event.ref }}
           THIS_TAG=${regTag##*/}
-          echo "${THIS_TAG}"
+          echo "refTag is ${refTag}"
+          echo "THIS_TAG is ${THIS_TAG}"
         # echo "THIS_TAG=${regTag##*/}" >> "$GITHUB_ENV"
         # echo "${THIS_TAG}"
         # if [ -z "${THIS_TAG}" ]; then
