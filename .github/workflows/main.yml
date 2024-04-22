@@ -41,16 +41,10 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{THIS_TAG}} # 指定新版本号
+          tag_name: ${{THIS_TAG}}
           release_name: Release ${{THIS_TAG}}
           draft: false
           prerelease: false
           make_latest: true
           files: |
             test.tar.gz
-
-
-
-
- 
-
