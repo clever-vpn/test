@@ -27,8 +27,8 @@ jobs:
 # refs/tags/v1.1.4
       - name: Get Tags
         run: |
-          refTag=${{ github.event.ref }}
-          echo "THIS_TAG=${refTag##*/}" >> "$GITHUB_ENV"
+          THIS_TAG=${${{ github.event.ref }}##*/}
+          echo "THIS_TAG=${HIS_TAG}" >> "$GITHUB_ENV"
           echo "${THIS_TAG}"
           if [ -z "${THIS_TAG}" ]; then
             echo "error: invalid tags"
