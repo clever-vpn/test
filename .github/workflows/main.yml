@@ -32,7 +32,6 @@ jobs:
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           repository: ${{ github.repository }}
-          token: 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
 
       - name: Display
         run: echo ${{ steps.keydb.outputs.release }}
