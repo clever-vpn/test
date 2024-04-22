@@ -24,11 +24,19 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+# refs/tags/v1.1.4
+      - name: Get Tags
+        run: |
+          refTag=${{ github.event.ref }}
+          echo "THIS_TAG=${regTag##*/}" >> "$GITHUB_ENV"
+          echo "${THIS_TAG}"
+          if [ -z "${THIS_TAG}" ]; then
+            echo "error: invalid tags"
+            exit 1
+          fi 
+      # - name: Checkout repository
+      #   uses: actions/checkout@v4      
 
-      - name: Test
-        run: echo "Tag name is ${{ github.event.ref }}"
 
  
 
