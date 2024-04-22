@@ -28,17 +28,28 @@ jobs:
       - name: Get Tags
         run: |
           refTag=${{ github.event.ref }}
-          THIS_TAG=${refTag##*/}
-          echo "refTag is ${refTag}"
-          echo "THIS_TAG is ${THIS_TAG}"
           echo "THIS_TAG=${refTag##*/}" >> "$GITHUB_ENV"
           echo "${THIS_TAG}"
           if [ -z "${THIS_TAG}" ]; then
             echo "error: invalid tags"
             exit 1
           fi 
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4      
+
+      - name: Checkout repository
+        uses: actions/checkout@v4     
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{THIS_TAG}} # 指定新版本号
+          release_name: Release ${{THIS_TAG}}
+          draft: false
+          prerelease: false
+          make_latest: true
+          files: |
+            test.tar.gz
+
+
 
 
  
