@@ -25,6 +25,9 @@ jobs:
 # refs/tags/v1.1.4
       - name: Get Tags
         run: |
+          myjson='{"name": "wubolin"}'
+          value=$(echo $myjson | jq '.name')
+          echo "value: $value"
           tag=${{ github.event.ref }}
           if ! [[ $tag =~ "refs/tags" ]]; then
             echo "error: no version tag"
