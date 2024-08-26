@@ -29,7 +29,7 @@ jobs:
         run: |
           tag=${{ github.event.ref }}
           THIS_TAG=${tag##*/}
-          echo "THIS_TAG=${HIS_TAG}" >> "$GITHUB_ENV"
+          echo "THIS_TAG=${THIS_TAG}" >> "$GITHUB_ENV"
           echo "${THIS_TAG}"
           if [ -z "${THIS_TAG}" ]; then
             echo "error: invalid tags"
