@@ -26,7 +26,7 @@ jobs:
       - name: Get Tags
         run: |
           tag=${{ github.event.ref }}
-          if ! [[ tag ~= refs/tag ]]; then
+          if ! [[ tag =~ refs/tag ]]; then
             echo "error: no version tag"
             exit 1
           fi
