@@ -27,8 +27,13 @@ jobs:
           kubectl config view
           kubectl config get-contexts
           docker info
+          minikube start --addons ingress --wait "all"
           minikube status
-          
+          kubectl config view
+          kubectl config get-contexts
+          docker info
+          eval $(minikube -p minikube docker-env)
+          docker info
 # refs/tags/v1.1.4
       - name: Get Tags
         run: |
