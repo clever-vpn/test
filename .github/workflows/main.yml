@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Get Docker Info
         run: |
-          kubectl config view --minify --raw
+          kubectl config view
           kubectl config get-contexts
           docker info
           minikube status
